@@ -17,7 +17,6 @@ Your own Farcaster read node and client, in three commands. MIT licensed, by @th
 - `node` (step 1): restore the snapshot, run a read node, wait for sync.
 - `client` (step 2): log in with a test account, open your client.
 
-[UNVERIFIED: the repo is not published at this address yet.]
 
 Farcaster is a social network whose posts live on Snapchain, a public chain anyone can follow by running a node. threecast runs one on a server you control, with a client on your laptop that reads and posts through it.
 

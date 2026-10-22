@@ -15,7 +15,7 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const REPO = "https://github.com/yin-dra/threecast"; // UNVERIFIED: inferred from the Pages address
+const REPO = "https://github.com/yin-dra/threecast";
 const warnings = [];
 
 // ---------------------------------------------------------------- text
