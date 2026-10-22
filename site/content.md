@@ -476,6 +476,8 @@ Then check by hand in the provider's console: Servers and Volumes (Hetzner) or D
 
 The client uses `@farcaster/core` 0.20.0, `viem` 2.57.3 and `@scure/bip39` 1.6.0, talks to the node over plain HTTP, and has no build step. Snapchain is GPL-3.0, so threecast, which is MIT, copies none of its files: `snapchain.sh` downloads them on your server. The [README](https://github.com/yin-dra/threecast#repo-map) maps the repo and lists the fixes drafted for upstream docs.
 
+Two docs errors found along the way went back upstream: the KEY_ADD error table ([snapchain#1077](https://github.com/farcasterxyz/snapchain/pull/1077)) and the storage unit price and limits ([docs#472](https://github.com/farcasterxyz/docs/pull/472)).
+
 On 2026-10-21, on macOS with `/bin/bash` 3.2 and Node 24.12.0:
 
 | Suite | Command | Result |

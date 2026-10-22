@@ -1,5 +1,7 @@
 # Upstream PR 1: snapchain, KEY_ADD error table
 
+Opened on 2026-10-22 as [farcasterxyz/snapchain#1077](https://github.com/farcasterxyz/snapchain/pull/1077).
+
 - Repo: `farcasterxyz/snapchain`
 - Base: `main` at `fc87f2686472598143062a00e1c2b2633b2d87ab` (tag `@latest`, release v0.14.3)
 - File: `site/docs/pages/guides/writing-messages.mdx` (live at https://snapchain.farcaster.xyz/guides/writing-messages)

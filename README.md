@@ -59,18 +59,19 @@ client/web/          the local web client (http://127.0.0.1:4040)
 tests/               mock cloud APIs, mock snapshot bucket, fixtures
 site/                the tutorial (node site/build.mjs builds index.html from content.md)
 docs/VERIFICATION.md what was tested, and how
-docs/upstream/       fixes drafted for upstream docs
+docs/upstream/       fixes sent upstream (snapchain#1077, docs#472)
 ```
 
 Tests: `/bin/bash tests/provision/run.sh`, `/bin/bash tests/node/run.sh`, `cd client && npm ci && npm test`.
 
-## Upstream drafts
+## Upstream fixes
 
-Drafted, not yet submitted:
+Docs errors found while building threecast, sent to Farcaster's repos:
 
-- [KEY_ADD error table](docs/upstream/1-snapchain-key-add-error-table.md), for snapchain's writing-messages guide: the error strings a v0.14.3 node returns.
-- [Gossip port 3382 is UDP](docs/upstream/2-snapchain-udp-gossip-port.md), for snapchain's running-a-node guide, whose screenshot opens it as TCP.
-- [Storage unit price and limits](docs/upstream/3-docs-storage-unit-price-limits.md), for docs.farcaster.xyz, which still says $7 a unit and 5000 casts.
+- [farcasterxyz/snapchain#1077](https://github.com/farcasterxyz/snapchain/pull/1077): the KEY_ADD error table in the writing-messages guide now quotes the strings a node actually returns.
+- [farcasterxyz/docs#472](https://github.com/farcasterxyz/docs/pull/472): storage units cost $0.20 and hold 100 casts, 200 reactions and 200 links, not $7 and 5000.
+
+The patches and descriptions are in [docs/upstream/](docs/upstream/). A third fix, gossip port 3382 being UDP, was already filed by someone else as [snapchain#1069](https://github.com/farcasterxyz/snapchain/pull/1069), so it was dropped.
 
 ## License
 

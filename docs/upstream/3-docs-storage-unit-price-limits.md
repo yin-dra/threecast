@@ -1,5 +1,7 @@
 # Upstream PR 3: docs.farcaster.xyz, storage unit price and limits
 
+Opened on 2026-10-22 as [farcasterxyz/docs#472](https://github.com/farcasterxyz/docs/pull/472).
+
 - Repo: `farcasterxyz/docs`
 - Base: `main` at `da99c903033bbc06bad1ab5f78cb00a3b745997e` (2026-10-19, after #469)
 - Files: `src/app/(docs)/learn/what-is-farcaster/messages/page.mdx` (live at https://docs.farcaster.xyz/learn/what-is-farcaster/messages), `src/app/(docs)/reference/contracts/page.mdx` (live at https://docs.farcaster.xyz/reference/contracts)
