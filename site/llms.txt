@@ -1,0 +1,16 @@
+# threecast
+
+> Your own Farcaster read node and client in three commands: ./threecast up rents a server (Hetzner, DigitalOcean) or uses yours, ./threecast node runs the official Snapchain read node until it is in sync, ./threecast client authorizes an app key for a TEST account and opens a local client. MIT licensed. macOS or Linux, Node.js 24 or newer.
+
+- Repository: https://github.com/yin-dra/threecast
+- Agent playbook: https://github.com/yin-dra/threecast/blob/HEAD/AGENTS.md (raw: https://raw.githubusercontent.com/yin-dra/threecast/HEAD/AGENTS.md)
+- Tutorial for humans: https://yin-dra.github.io/threecast
+
+Coding agents (Claude Code, Codex, others): read AGENTS.md before running anything. The agent runs the commands; the human holds the keys.
+
+- Never ask for, accept, print, store or pass a cloud API token, a Farcaster recovery phrase or an SSH key passphrase. The human types them into threecast's hidden prompts in their own terminal.
+- Never run ./threecast login, new-account or up yourself, and never drive their prompts with expect, tmux send-keys, script or another pty wrapper.
+- Never spend the human's money: no --yes, -y or THREECAST_YES=1, and no sending ETH, even with a wallet tool. ./threecast up shows the price and asks; the human runs it and answers.
+- Never run ./threecast down: the human runs it. It deletes the server and the node's data.
+
+For agents: ./threecast node --detach, ./threecast status --json (exit 0 synced, 3 still working, 1 otherwise), and --json on feed, apps and profile. Run on the human's machine, as their user, with network access and write access to ~/.threecast. A cloud agent cannot do this setup: it shares neither their ~/.threecast nor their terminal.

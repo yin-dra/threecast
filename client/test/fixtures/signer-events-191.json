@@ -1,0 +1,84 @@
+{
+  "events": [
+    {
+      "type": "EVENT_TYPE_SIGNER",
+      "chainId": 10,
+      "blockNumber": 111898471,
+      "blockHash": "0x5349356ebd99c7a68b96086eb5f8dcad60246c2b4fc881727f8810b932d83d68",
+      "blockTimestamp": 1699395719,
+      "transactionHash": "0xef804a7bcc76fed086669f44d71c9e29cf832c4716735841bdfc860fa41d575d",
+      "logIndex": 11,
+      "fid": 191,
+      "signerEventBody": {
+        "key": "0x5ca1c577edb7f63381a76ea7c510d78101b7eb24c643b973194dd270dffb2011",
+        "keyType": 1,
+        "eventType": "SIGNER_EVENT_TYPE_ADD",
+        "metadata": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjwAAAAAAAAAAAAAAAAALveQ3XmTo1/YR8BT7drpQNBVWWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZO55ngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBTQZvcwHqqua+Qs5ESOnHhIxgcRCliEE+H7XQfChL/JwWYJ1e0D6Vk6KW0RfA9DAomISaNM5C/I5utly1U1m3KRsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "metadataType": 1
+      },
+      "tier_purchase_event_body": null,
+      "txIndex": 9,
+      "version": 0
+    },
+    {
+      "type": "EVENT_TYPE_SIGNER",
+      "chainId": 10,
+      "blockNumber": 111901143,
+      "blockHash": "0x8cb9efaca0c45dd26ed1ad88ce143bf7f688937211691a3e99c496a8de963267",
+      "blockTimestamp": 1699401063,
+      "transactionHash": "0x2b3442b62f63ff72bf92a0b7fa2afbc0c58919686c0ccef5613186e1d2f22064",
+      "logIndex": 113,
+      "fid": 191,
+      "signerEventBody": {
+        "key": "0x176eb8f0fdf91633be807505ad264fa642371348216bc9f537bfd789e3b50840",
+        "keyType": 1,
+        "eventType": "SIGNER_EVENT_TYPE_ADD",
+        "metadata": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABMSAAAAAAAAAAAAAAAABTt21A7W5PKr4erk97Y2mE9mkYlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAZO6/qAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABB8Rc2TcInk10icyfptsQ9QlakArheGLere2TENCMR/L40Tsa3/ooNtck/DviXyvL+TAfT2RXu9/wdDlf9IW4k8RwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "metadataType": 1
+      },
+      "tier_purchase_event_body": null,
+      "txIndex": 9,
+      "version": 0
+    },
+    {
+      "type": "EVENT_TYPE_SIGNER",
+      "chainId": 10,
+      "blockNumber": 112321642,
+      "blockHash": "0xf1955000db866af06b8a3fc6618779e4c5f5d40c1b2eb5c24604021cc98d8de2",
+      "blockTimestamp": 1700242061,
+      "transactionHash": "0xcfa121f10b68dd1916afbb6f269a018370d2b45dbe8bcd1272ab1e71d197a4aa",
+      "logIndex": 0,
+      "fid": 191,
+      "signerEventBody": {
+        "key": "0xa514ebb1209b989290d96b18e35d92dc913e4a32683e5b6b86b17658ce0ee837",
+        "keyType": 0,
+        "eventType": "SIGNER_EVENT_TYPE_REMOVE",
+        "metadata": "",
+        "metadataType": 0
+      },
+      "tier_purchase_event_body": null,
+      "txIndex": 13,
+      "version": 0
+    },
+    {
+      "type": "EVENT_TYPE_SIGNER",
+      "chainId": 10,
+      "blockNumber": 136126175,
+      "blockHash": "0x76ebaf4747d6f225269ea5324673a1c7e72b1a7763ea9efbfc2e97c4f680c165",
+      "blockTimestamp": 1747851127,
+      "transactionHash": "0xd086971e4fd1d187f1f430a2c99546b303ff3d71455b75bd9f24b6fcf8b667a7",
+      "logIndex": 56,
+      "fid": 191,
+      "signerEventBody": {
+        "key": "0x000000000000000000000000938bd196eb1eab50e748c69c782ee02f5b536458",
+        "keyType": 2,
+        "eventType": "SIGNER_EVENT_TYPE_ADD",
+        "metadata": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjwAAAAAAAAAAAAAAAAALveQ3XmTo1/YR8BT7drpQNBVWWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaC4a+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABBR+bpc+F0r4d5Mvlco+K3YHUwDVjti17xIXswnxgCOmF5NqvO05vhO0wX1QUtNpYwcrdWPtrIOSmM6Hsgi1e1hxwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+        "metadataType": 1
+      },
+      "tier_purchase_event_body": null,
+      "txIndex": 13,
+      "version": 0
+    }
+  ]
+}

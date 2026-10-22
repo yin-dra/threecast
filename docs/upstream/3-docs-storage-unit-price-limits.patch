@@ -1,0 +1,71 @@
+From 929072185da0f3fc2da33e23e3b26858cf021669 Mon Sep 17 00:00:00 2001
+From: yin-dra <12395328+yin-dra@users.noreply.github.com>
+Date: Wed, 21 Oct 2026 11:07:33 +0500
+Subject: [PATCH] docs: storage units cost $0.20 and hold 100 casts, 200
+ reactions, 200 links
+
+The Messages page still quoted the original storage unit: $7, 5000
+casts, 2500 reactions, 2500 links, 50 profile data, 50 verifications.
+Since the Storage Redenomination FIP (protocol discussion #229) a unit
+costs $0.20 and holds 100 casts, 200 reactions, 200 links, 25 profile
+data and 5 verifications (snapchain src/storage/store/stores.rs, the
+UnitType2025 limits). Units rented earlier keep their larger limits.
+The contracts overview had the same $7 figure.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+---
+ .../learn/what-is-farcaster/messages/page.mdx  | 18 ++++++++++--------
+ src/app/(docs)/reference/contracts/page.mdx    |  2 +-
+ 2 files changed, 11 insertions(+), 9 deletions(-)
+
+diff --git a/src/app/(docs)/learn/what-is-farcaster/messages/page.mdx b/src/app/(docs)/learn/what-is-farcaster/messages/page.mdx
+index 735e9dd..e760a53 100644
+--- a/src/app/(docs)/learn/what-is-farcaster/messages/page.mdx
++++ b/src/app/(docs)/learn/what-is-farcaster/messages/page.mdx
+@@ -22,20 +22,22 @@ Accounts can publish five different kinds of messages to the network:
+ 
+ An account must pay rent to keep their messages on the Farcaster network. Charging rent prevents users from spamming the network.
+ 
+-An account can rent a unit of storage by making an onchain transaction to the Storage Registry. A unit of storage costs $7 today, lasts for one year and lets each account store a certain number of messages of each type. The limits for each type today are:
++An account can rent a unit of storage by making an onchain transaction to the Storage Registry. A unit of storage costs $0.20 today, lasts for one year and lets each account store a certain number of messages of each type. The limits for each type today are:
+ 
+-- 5000 Casts
+-- 2500 Reactions
+-- 2500 Links
+-- 50 Profile Data
+-- 50 Verifications
++- 100 Casts
++- 200 Reactions
++- 200 Links
++- 25 Profile Data
++- 5 Verifications
+ 
+-If an account exceeds its limit for a message type, the oldest message is pruned to make space for the new one. The user can keep using the network without paying for more storage and Hubs can keep the storage load under control. An account can always purchase more storage to increase its limits.
++Units rented before July 16, 2025 are larger and keep the limits they were rented with. An account's limit for each type is the sum over all of its active units.
++
++If an account exceeds its limit for a message type, the oldest message is pruned to make space for the new one. The user can keep using the network without paying for more storage and nodes can keep the storage load under control. An account can always purchase more storage to increase its limits.
+ 
+ An account that lets its storage expire may lose all its messages. There is a 30-day grace period after a storage unit expires during which an account must renew or lose its messages.
+ 
+ The price and size of each storage unit is re-calculated periodically to balance growth and quality of the network. See [FIP-6](https://github.com/farcasterxyz/protocol/discussions/98)
+-for more details.
++for more details. Today's price and limits come from the [Storage Redenomination FIP](https://github.com/farcasterxyz/protocol/discussions/229).
+ 
+ ## Deletion
+ 
+diff --git a/src/app/(docs)/reference/contracts/page.mdx b/src/app/(docs)/reference/contracts/page.mdx
+index 2836c0b..03dfb8c 100644
+--- a/src/app/(docs)/reference/contracts/page.mdx
++++ b/src/app/(docs)/reference/contracts/page.mdx
+@@ -26,7 +26,7 @@ be added to that fid again. The same key may be registered to multiple fids. Add
+ ## Storage Registry
+ 
+ The Storage Registry allows an fid to rent one or more "units" of storage on the farcaster network. The current cost of
+-storage is 7$ USD per unit, for one year. This fee must be paid in ETH. The storage registry uses an ETH price oracle to
++storage is $0.20 USD per unit, for one year. This fee must be paid in ETH. The storage registry uses an ETH price oracle to
+ determine the current cost in ETH and exposes functions to query this price. Overpayments are refunded to the caller.
+ 
+ ## Id Gateway
+-- 
+2.52.0
+

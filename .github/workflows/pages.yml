@@ -1,0 +1,38 @@
+# Publishes site/ to GitHub Pages. The page is rebuilt from site/content.md first, so the
+# deployed index.html always matches the Markdown. Repository setting needed once:
+# Settings → Pages → Build and deployment → Source: GitHub Actions.
+name: Pages
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "site/**"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - name: Build site/index.html from site/content.md
+        run: node site/build.mjs
+      - uses: actions/configure-pages@v5.0.0
+      - uses: actions/upload-pages-artifact@v3.0.1
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4.0.5

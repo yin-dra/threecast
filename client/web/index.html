@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="threecast-token" content="__THREECAST_TOKEN__">
+<title>threecast</title>
+<link rel="stylesheet" href="/static/style.css">
+<script type="module" src="/static/app.js"></script>
+</head>
+<body>
+
+<header class="top">
+  <div class="top__row">
+    <a class="top__mark" href="#/">threecast</a>
+    <span class="top__viewer" id="viewer"></span>
+  </div>
+  <p class="top__node" id="node"><span class="kicker" id="node-label">[ Node ]</span> <span id="node-line">asking…</span></p>
+  <div class="notice" id="notice" role="status" hidden>
+    <p class="notice__kind kicker" id="notice-kind"></p>
+    <p class="notice__text" id="notice-text"></p>
+    <p class="notice__hint" id="notice-hint"></p>
+    <button class="notice__close" id="notice-close" type="button">Dismiss</button>
+  </div>
+</header>
+
+<main class="main">
+
+  <section class="compose wrap" id="compose" hidden>
+    <p class="compose__reply" id="reply" hidden><span id="reply-to"></span> · <button type="button" id="reply-cancel">Cancel</button></p>
+    <label class="blk__label" for="text">New cast</label>
+    <textarea class="compose__text" id="text" rows="3" placeholder="What is happening on your node?"></textarea>
+    <div class="compose__bar">
+      <span class="compose__count" id="count">0 / 320</span>
+      <button class="button" type="button" id="post" disabled>Post</button>
+    </div>
+  </section>
+
+  <section id="home" hidden>
+    <div class="wrap head" id="home-head">
+      <h1 class="head__title">Home</h1>
+      <p class="head__sub" id="home-sub"></p>
+    </div>
+    <div id="apps">
+      <div class="rule"><span class="rule__label">[ Apps ]</span><span class="rule__line"></span></div>
+      <div class="wrap">
+        <p class="filters__about">Each cast is tagged with the app that asked for the key that signed it (GET /v1/signer). Click an app to see only its casts, click it again to hide them.</p>
+        <div id="filters"></div>
+      </div>
+    </div>
+    <div class="rule"><span class="rule__label">[ Feed ]</span><span class="rule__line"></span></div>
+    <div class="wrap" id="feed"></div>
+  </section>
+
+  <section id="profile" hidden>
+    <div class="wrap head" id="profile-head"></div>
+    <div class="rule"><span class="rule__label">[ Casts ]</span><span class="rule__line"></span></div>
+    <div class="wrap" id="profile-casts"></div>
+  </section>
+
+</main>
+
+<noscript><p class="wrap">The web client needs JavaScript. The command line works without it: ./threecast feed</p></noscript>
+
+</body>
+</html>

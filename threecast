@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+# threecast — MIT License
+# Your own Farcaster read node and client in three commands.
+set -euo pipefail
+
+TC_ROOT=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+export TC_ROOT
+
+# shellcheck source=lib/common.sh
+. "$TC_ROOT/lib/common.sh"
+for f in up down remote node client; do
+  # shellcheck disable=SC1090
+  . "$TC_ROOT/lib/$f.sh"
+done
+
+usage() {
+  cat <<'EOF'
+threecast — your own Farcaster read node and client
+
+  ./threecast up      (0) rent a server, or use your own: --host user@ip
+  ./threecast node    (1) restore the snapshot, run the read node, wait for sync
+  ./threecast client  (2) authorize an app key and open your client
+
+Node:     status · ssh · down
+Account:  login · new-account · whoami · logout
+Client:   feed · apps · cast · delete · like · unlike · recast · unrecast
+          follow · unfollow · profile
+
+Run ./threecast <command> --help for details.
+Tutorial: https://yin-dra.github.io/threecast
+EOF
+}
+
+parse_common_flags "$@"
+set -- "${TC_ARGS[@]+"${TC_ARGS[@]}"}"
+cmd=${1:-help}
+[ $# -gt 0 ] && shift
+tc_init_home
+
+case "$cmd" in
+  up)               cmd_up "$@" ;;
+  node)             cmd_node "$@" ;;
+  status)           cmd_status "$@" ;;
+  ssh)              cmd_ssh "$@" ;;
+  down)             cmd_down "$@" ;;
+  client)           cmd_client "$@" ;;
+  help|-h|--help)   usage ;;
+  *)                client_passthrough "$cmd" "$@" ;;
+esac

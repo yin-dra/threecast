@@ -1,0 +1,41 @@
+#!/bin/bash
+# threecast — MIT License
+# Stand-in for ssh in the provisioning tests. Logs each call to $FAKE_SSH_LOG and fakes what
+# threecast relies on: control-master tunnels, and the scripts it pipes into `sh -s`.
+set -euo pipefail
+
+printf 'argv: %s\n' "$*" >> "$FAKE_SSH_LOG"
+socket='' op='' master=0 remote=''
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -S) socket=$2; shift 2 ;;
+    -O) op=$2; shift 2 ;;
+    -M) master=1; shift ;;
+    -o|-i|-L|-l|-p) shift 2 ;;
+    -*) shift ;;
+    *) shift; remote="$*"; break ;;
+  esac
+done
+
+case "$op" in
+  check) [ -e "$socket" ]; exit ;;
+  exit)  rm -f "$socket"; exit 0 ;;
+esac
+if [ "$master" = 1 ]; then
+  : > "$socket"
+  # Older OpenSSH leaves the backgrounded master holding the caller's stdout and stderr.
+  if [ -n "${FAKE_SSH_LINGER:-}" ]; then sleep "$FAKE_SSH_LINGER" & fi
+  exit 0
+fi
+
+printf 'remote: %s\n' "$remote" >> "$FAKE_SSH_LOG"
+if [ -n "${FAKE_SSH_FAIL_ON:-}" ]; then
+  case "$remote" in *"$FAKE_SSH_FAIL_ON"*) exit 1 ;; esac
+fi
+case "$remote" in
+  'sh -s'*)
+    script=$(cat)
+    printf 'script: %s\n' "${script%%$'\n'*}" >> "$FAKE_SSH_LOG"
+    case "$script" in *free_kib=*) printf '%s\n' "${FAKE_SSH_FACTS:-}" ;; esac ;;
+esac
+exit "${FAKE_SSH_EXIT:-0}"

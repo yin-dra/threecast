@@ -1,0 +1,28 @@
+#cloud-config
+# threecast — MIT License
+# First boot of a rented server: install what node.sh needs and mount the data volume at
+# /root/snapchain, the directory the official snapchain.sh works in. lib/up.sh replaces
+# __VOLUME_DEVICE__ with the provider's stable device path before sending this file.
+package_update: true
+# cron is listed because snapchain.sh exits when crontab is missing, even with SKIP_CRONTAB set.
+packages: [ca-certificates, curl, jq, cron]
+write_files:
+  - path: /usr/local/sbin/threecast-mount
+    permissions: "0755"
+    content: |
+      #!/bin/bash
+      set -euo pipefail
+      DEV=__VOLUME_DEVICE__
+      MNT=/root/snapchain
+      for _ in $(seq 1 90); do [ -b "$DEV" ] && break; sleep 2; done
+      [ -b "$DEV" ] || { echo "volume $DEV not found" >&2; exit 1; }
+      # The provider formats the volume (ext4) at creation; this only runs if it did not.
+      blkid "$DEV" >/dev/null 2>&1 || mkfs.ext4 -F -m 0 "$DEV"
+      mkdir -p "$MNT"
+      # Match on the mount point, not the device: DigitalOcean writes its own fstab line for
+      # the same device under /mnt. Mounting one filesystem twice is harmless.
+      grep -qs "[[:space:]]${MNT}[[:space:]]" /etc/fstab || echo "$DEV $MNT ext4 defaults,nofail 0 0" >> /etc/fstab
+      mountpoint -q "$MNT" || mount "$MNT"
+runcmd:
+  - [/usr/local/sbin/threecast-mount]
+  - [touch, /root/.threecast-provisioned]

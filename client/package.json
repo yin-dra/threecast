@@ -1,0 +1,24 @@
+{
+  "name": "threecast-client",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The threecast client: a CLI and a local web client that talk to your own Snapchain node over HTTP.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@farcaster/core": "0.20.0",
+    "@scure/bip39": "1.6.0",
+    "viem": "2.57.3"
+  },
+  "devDependencies": {
+    "@types/node": "24.19.1",
+    "typescript": "5.9.3"
+  }
+}
