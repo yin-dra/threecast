@@ -177,7 +177,7 @@ p{margin:0;}
 .row b code{font-size:.9em;}
 
 /* copy buttons: text, no box */
-.copy{flex:none;padding:10px 0 10px 12px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);}
+.copy{-webkit-user-select:none;user-select:none;flex:none;padding:10px 0 10px 12px;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);}
 .copy.is-done{color:var(--ink-2);}
 .copy[hidden]{display:none;}
 

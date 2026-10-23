@@ -59,17 +59,19 @@ In each new Terminal window, run `cd ~/threecast` first. Every command has `--he
 
 ### Installing the tools on a Mac
 
-Open Terminal (Command-Space, type Terminal, Return) and run each line on its own. Homebrew asks for your Mac password, shows nothing as you type, and may first install Apple's Command Line Tools, which takes several minutes.
+Open Terminal (Command-Space, type Terminal, Return). Paste one line at a time and press Return after each. The **Copy** labels on this page are buttons, not part of the commands.
+
+First, Homebrew, the Mac's installer for developer tools. It asks for your Mac password (nothing shows as you type), may install Apple's Command Line Tools first, and takes several minutes. Wait until it says **Installation successful**.
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-On an Apple-chip Mac (Apple menu → About This Mac shows Chip: Apple M…), the first two lines put `brew` on your PATH; on Intel, skip them. Node must be `v24` or higher.
+Then these four lines, on any Mac, Apple chip or Intel. The first two let Terminal find `brew` now and in every new window; the third installs git, Node and jq; the last should print `v24` or higher.
 
 ```sh
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-eval "$(/opt/homebrew/bin/brew shellenv)"
+echo 'eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)"' >> ~/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv 2>/dev/null)"
 brew install git node jq
 node --version
 ```
