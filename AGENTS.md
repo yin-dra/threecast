@@ -50,7 +50,7 @@ Suggest installs; ask before running them. macOS: `brew install git node jq`. De
 
 ```sh
 git clone https://github.com/yin-dra/threecast.git && cd threecast
-(cd client && npm ci --omit=dev --no-audit --no-fund --loglevel=error)
+(cd client && npm ci --omit=dev --ignore-scripts --no-audit --no-fund --loglevel=error)
 ```
 
 The `npm ci` is what threecast runs on first use anyway. Done now, its output never lands in front of a `--json` read.

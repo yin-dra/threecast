@@ -39,7 +39,7 @@ client_deps() {
   fi
   need_cmd npm
   step "Installing the client's libraries with npm ci (pinned by package-lock.json)…"
-  (cd "$dir" && npm ci --omit=dev --no-audit --no-fund --loglevel=error) \
+  (cd "$dir" && npm ci --omit=dev --ignore-scripts --no-audit --no-fund --loglevel=error) \
     || die "npm ci failed." "Check your internet connection, then run the command again."
   ok "Client libraries installed."
 }
